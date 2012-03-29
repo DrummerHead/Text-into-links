@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+<head>
+
+<title>Make text links into clickable links &#183; mcdlr</title>
+
+<meta charset="utf-8">
+<meta name="author" content="DrummerHead" />
+<meta name="description" content="With this page you can skip copy and pasting several links and just make whatever text that is a link into an actual clickable link" />
+
+<style type="text/css">
+html,
+body {
+  margin:0;
+  padding:0;
+  height:100%;
+}
+#wrap {
+  padding:1% 5% 1% 1%;
+  width:94%;
+  height:100%;
+}
+#formm {
+  width:100%;
+  height:100%;
+}
+textarea {
+  width:100%;
+  height:85%;
+  font-family:"Courier New", Courier, monospace;
+}
+#linkThis {
+  cursor:pointer;
+  border:1px solid #999;
+  margin:5px 0;
+  display:block;
+  width:100%;
+  height:24px;
+  line-height:24px;
+  text-align:center;
+  background-color:#f7f7f7;
+}
+#linkThis:hover {
+  background-color:#c7f7f7;
+}
+#reciever {
+  white-space:pre-wrap;
+  font-family:Georgia, "Times New Roman", Times, serif;
+  line-height:1.5;
+  border-width:10px 1px 1px;
+  border-style:solid;
+  border-color:#ccc;
+  padding:1%;
+  margin:2em 0;
+  width:98%;
+}
+#reciever a {
+  background-color:#ffc;
+}
+#reciever a:hover {
+  background-color:#ff7;
+}
+</style>
+
+<link rel="stylesheet" href="../css/promiscuous.css?1">
+<link rel='image_src' href='http://mcdlr.com/img/thumbs/make-links.png'>
+
+<script type="text/javascript" src="../js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+$(document).ready(function(){
+  function replacechar(match){
+    if (match=="<") {
+      return "&lt;"
+    } else if (match==">") {
+      return "&gt;"
+    } else if (match=="\"") {
+      return "&quot;"
+    } else if (match=="'") {
+      return "&#039;"
+    } else if (match=="&") {
+      return "&amp;"
+    }
+  }
+$('#linkThis').click(function(){
+    var textRaw = $('textarea').val();
+    var textCleaned = textRaw.replace(/[(<>"'&]/g, function(m){return replacechar(m)});
+    var textLinked = textCleaned.replace(/\b((https?|ftp|file):\/\/[-A-Za-z0-9+&@#\/%?=~_|!:,.;]*[-A-Za-z0-9+&@#\/%=~_|])/gi, '<a href="$1">$1</a>');
+    $('#reciever').html(textLinked);
+    window.location = '#reciever';
+  });
+});
+//]]>
+</script>
+
+</head>
+
+<body>
+<header id="brand" class="small">
+  <a href="/" title="Go to mcdlr homepage">Go to mcdlr homepage</a>
+</header>
+<div id="wrap">
+
+<div id="formm">
+<textarea cols="77" rows="17">
+</textarea>
+<span id="linkThis">Link it!</span>
+</div>
+<div id="reciever">
+</div>
+
+</div>
+
+<!-- Google analytics -->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-1030009-5");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+<!-- /Google analytics -->
+</body>
+</html>
