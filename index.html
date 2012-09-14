@@ -67,12 +67,40 @@ textarea {
 }
 </style>
 
-<link rel="stylesheet" href="../css/promiscuous.css?1">
+<link rel="stylesheet" href="http://mcdlr.com/css/promiscuous.css">
 <link rel='image_src' href='http://mcdlr.com/img/thumbs/make-links.png'>
 
-<script type="text/javascript" src="../js/jquery-1.4.2.min.js"></script>
+
+</head>
+
+<body>
+
+<header id='quoin'>
+  <div id='brand' class='small'>
+    <a href='http://mcdlr.com/' title='Go to mcdlr homepage'>Go to mcdlr homepage</a>
+  </div>
+  <div id='octo-peek'>
+    <a href='https://github.com/DrummerHead/Text-into-links' rel='external'><span>Fork me on Github!</span></a>
+  </div>
+</header>
+
+<div id="wrap">
+
+<div id="formm">
+<textarea cols="77" rows="17">
+</textarea>
+<span id="linkThis">Link it!</span>
+</div>
+<div id="reciever">
+</div>
+
+</div>
+
+<div id='moribus'>
+<script src='//ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js'></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery.min.js"><\/script>')</script>
+
 <script type="text/javascript">
-//<![CDATA[
 $(document).ready(function(){
   function replacechar(match){
     if (match=="<") {
@@ -95,33 +123,7 @@ $('#linkThis').click(function(){
     window.location = '#reciever';
   });
 });
-//]]>
 </script>
-
-</head>
-
-<body>
-
-<header id='quoin'>
-  <div id='brand' class='small'>
-    <a href='/' title='Go to mcdlr homepage'>Go to mcdlr homepage</a>
-  </div>
-  <div id='octo-peek'>
-    <a href='https://github.com/DrummerHead/Text-into-links' rel='external'><span>Fork me on Github!</span></a>
-  </div>
-</header>
-
-<div id="wrap">
-
-<div id="formm">
-<textarea cols="77" rows="17">
-</textarea>
-<span id="linkThis">Link it!</span>
-</div>
-<div id="reciever">
-</div>
-
-</div>
 
 <!-- Google analytics -->
 <script type="text/javascript">
@@ -134,5 +136,7 @@ var pageTracker = _gat._getTracker("UA-1030009-5");
 pageTracker._trackPageview();
 } catch(err) {}</script>
 <!-- /Google analytics -->
+</div>
+
 </body>
 </html>
